@@ -2,10 +2,6 @@
   (:require [clj-http.client :as http]
             [clojure.data.json :as json]
             [clojure.string :as str]
-            [easy.file :as ef]
-            [easy.gram :as gram]
-            [easy.math :as math]
-            [easy.moment :as moment]
             [ring.util.codec :as codec])
   (:import (javax.crypto Mac)
            (javax.crypto.spec SecretKeySpec)
@@ -42,7 +38,7 @@
 
 (defn create-nonce-generator
   [& [start-from]]
-  (let [start-from (or start-from (moment/acum :stamp))
+  (let [start-from (or start-from (System/currentTimeMillis))
         nonce-holder (atom start-from)]
     (fn []
       (locking nonce-holder 
@@ -180,26 +176,4 @@ bid - cererile puse la vanzare"
 (def withdraw-status (partial ask :private "WithdrawStatus"))
 (def withdraw-cancel (partial ask :private "WithdrawCancel"))
 
-(defn convertor
-  [bs pair]
-  (fn [amount]
-    (let [tick (ticker {:pair (name pair)})
-          t (get (:result (:rsp tick))
-                 (keyword pair))
-          
-          sell-at (math/parse-number 
-                    (first (get t :a)))
-          buy-at (math/parse-number 
-                   (first (get t :b)))]
-      (if (= :sell bs)
-        (* amount sell-at)
-        (/ amount buy-at)))))
 
-
-(defn price 
-  [pair bs amount]
-  (apply (convertor bs pair) [amount]))
-
-(defn act 
-  [pair bs & args]
-  nil)

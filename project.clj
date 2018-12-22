@@ -1,4 +1,4 @@
-(defproject org.clojars.kokos/clj-kraken "0.1.0"
+(defproject org.clojars.kokos/clj-kraken "0.1.1"
   :description "Kraken API wrapper"
   :url "https://github.com/kokosro/clj-kraken"
   :license {:name "Eclipse Public License"
