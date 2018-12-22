@@ -32,7 +32,7 @@
 
 
 (defmulti question 
-  (fn [ask-type _ _ _]
+  (fn [ask-type _ _ _ _]
     ask-type))
 
 
@@ -92,10 +92,6 @@
                (:host (:api c))
                uri)
      :insecure? true}))
-
-
-"ask - ofertele puse la vanzare
-bid - cererile puse la vanzare"
 
 (defn ask 
   ([uri conf data]

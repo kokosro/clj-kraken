@@ -5,7 +5,7 @@ talk with kraken api from clojure
 ## Usage
 
 ```
-[org.clojars.kokos/clj-kraken "0.1.2"]
+[org.clojars.kokos/clj-kraken "0.1.3"]
 ```
 
 ```clojure
