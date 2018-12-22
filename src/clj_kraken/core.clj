@@ -127,8 +127,8 @@
                                                  :is_error 0}])
                           (catch Exception e (println e)))))]
      (if (nil? kp)
-       r 
-       (get-in r kp)))))
+       (:rsp r)
+       (get-in (:rsp r) kp)))))
 
 
 ;;;methods - public

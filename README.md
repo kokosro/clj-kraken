@@ -5,7 +5,7 @@ talk with kraken api from clojure
 ## Usage
 
 ```
-[org.clojars.kokos/clj-kraken "0.1.3"]
+[org.clojars.kokos/clj-kraken "0.1.4"]
 ```
 
 ```clojure
@@ -19,9 +19,9 @@ talk with kraken api from clojure
                 :key "...."
                 :secret "...."}})
 
-(kraken/assets conf)
+(kraken/assets conf {})
 
-(kraken/balance conf )
+(kraken/balance conf {})
 
 
 ```
