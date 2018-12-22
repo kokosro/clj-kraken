@@ -21,7 +21,7 @@ talk with kraken api from clojure
 
 (kraken/assets conf {})
 
-(kraken/balance conf {})
+(kraken/balance conf {} nil)
 
 
 ```
